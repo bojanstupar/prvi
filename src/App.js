@@ -1,6 +1,7 @@
 
  import React,{Component} from 'react';
  import Tabela from './tabela/tabela';
+ import Form from './form/form';
 
 class App extends Component {
 
@@ -32,6 +33,14 @@ class App extends Component {
         })  
      })
   }
+
+  handleSubmit=(podatak)=>{
+
+     this.setState({
+
+      podaci:[this.state.podaci,podatak]
+     })
+  }
   render(){
 
     const{podaci}=this.state
@@ -40,6 +49,7 @@ class App extends Component {
           <div className="container">
 
          <Tabela tb={podaci} obrisiRemove={this.obrisiRemove}/>
+         <Form handleSubmit={this.handleSubmit}/>
           </div>
     )
   }
